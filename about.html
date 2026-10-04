@@ -1,0 +1,288 @@
+<!doctype html>
+<!--
+  Marigold Shop: about.html
+  Bootstrap parts on this page: scrollspy, nav pills, sticky, grid, cards, figure and blockquote, list group, utilities
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About us | Marigold Shop</title>
+  <meta name="description" content="How one small shop on Market Street became three Marigold branches.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#aboutNav" data-bs-root-margin="0px 0px -60%" tabindex="0">
+
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom d-print-none" aria-label="Main menu">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" width="38" height="38" alt="">
+        <span class="mg-brand">Marigold<small>shop</small></span>
+      </a>
+
+      <!-- These stay visible on phones, next to the menu button -->
+      <div class="d-flex align-items-center gap-1 order-lg-last ms-auto ms-lg-2">
+        <button type="button" class="btn mg-icon-btn" id="themeToggle">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+        </button>
+        <a href="cart.html" class="btn mg-icon-btn position-relative" aria-label="Cart, 8 items">
+          <i class="bi bi-bag fs-5" aria-hidden="true"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">8</span>
+        </a>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="my-2 my-lg-0 me-lg-3" role="search" action="products.html">
+          <div class="input-group">
+            <span class="input-group-text bg-body"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input class="form-control" type="search" id="siteSearch" name="q" placeholder="Search rice, soap, pens" aria-label="Search the shop">
+          </div>
+        </form>
+
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle px-0 px-lg-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>Account
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="login.html">Log in</a></li>
+            <li><a class="dropdown-item" href="register.html">Create an account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin/index.html"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Staff dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container pt-4 pt-lg-5">
+
+    <header class="mb-5" style="max-width: 46rem;">
+      <p class="mg-eyebrow mb-2">About us</p>
+      <h1 class="display-5 mb-3">We started with one counter, one scale and a lot of tea.</h1>
+      <p class="lead text-body-secondary mb-0">Marigold is a family of three small shops. This is our story, and the people who make it work.</p>
+    </header>
+
+    <div class="row g-5">
+      <div class="col-lg-3">
+        <nav id="aboutNav" class="nav nav-pills flex-lg-column justify-content-center gap-1 sticky-lg-top mg-side-nav" aria-label="On this page">
+          <a class="nav-link" href="#story">Our story</a>
+          <a class="nav-link" href="#places">Our branches</a>
+          <a class="nav-link" href="#people">Our people</a>
+          <a class="nav-link" href="#promise">Our promise</a>
+        </nav>
+      </div>
+
+      <div class="col-lg-9">
+        <section id="story" class="mb-5 pb-4">
+          <h2 class="mb-3">Our story</h2>
+          <p>In 2009, Ruth Nakato opened a small shop on Market Street. Neighbours came in for sugar and stayed for the news. Soon they were asking for more: rice, soap, school books.</p>
+          <p class="mb-5">Today Marigold has three branches and 38 people on the team. We still weigh rice by hand if you ask. We still remember how you take your tea.</p>
+          <ol class="list-unstyled row row-cols-2 row-cols-md-4 g-4 mb-0">
+            <li class="col">
+              <p class="mg-number fs-1 mb-1">2009</p>
+              <p class="fw-semibold mb-1">Central opens</p>
+              <p class="small text-body-secondary mb-0">One counter, one scale and a kettle that was always on.</p>
+            </li>
+            <li class="col">
+              <p class="mg-number fs-1 mb-1">2015</p>
+              <p class="fw-semibold mb-1">Northgate opens</p>
+              <p class="small text-body-secondary mb-0">Parents asked for a shop near the school. We listened.</p>
+            </li>
+            <li class="col">
+              <p class="mg-number fs-1 mb-1">2021</p>
+              <p class="fw-semibold mb-1">Lakeside opens</p>
+              <p class="small text-body-secondary mb-0">Our biggest branch, with a bakery corner.</p>
+            </li>
+            <li class="col">
+              <p class="mg-number fs-1 mb-1">2026</p>
+              <p class="fw-semibold mb-1">Marigold goes online</p>
+              <p class="small text-body-secondary mb-0">Now you can shop from your phone. You are looking at it.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section id="places" class="mb-5 pb-4">
+          <h2 class="mb-4">Our branches</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img src="images/branch-central.webp" class="card-img-top" width="1200" height="800" alt="The front of the Marigold Central shop" loading="lazy">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Central</h3>
+                  <p class="card-text small mb-1">12 Market Street, next to the bus park</p>
+                  <p class="card-text small text-body-secondary">Every day, 7am to 9pm</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="images/branch-northgate.webp" class="card-img-top" width="1200" height="800" alt="The front of the Marigold Northgate shop" loading="lazy">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Northgate</h3>
+                  <p class="card-text small mb-1">48 Hill Road, opposite the primary school</p>
+                  <p class="card-text small text-body-secondary">Monday to Saturday, 7am to 8pm</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="images/branch-lakeside.webp" class="card-img-top" width="1200" height="800" alt="The front of the Marigold Lakeside shop" loading="lazy">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Lakeside</h3>
+                  <p class="card-text small mb-1">3 Shore Lane, by the fish market</p>
+                  <p class="card-text small text-body-secondary">Every day, 7am to 9pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="people" class="mb-5 pb-4">
+          <h2 class="mb-4">Our people</h2>
+          <figure class="p-4 p-md-5 bg-body-tertiary rounded-3 mb-5">
+            <blockquote class="blockquote mb-3">
+              <p class="mg-quote">"A shop is not shelves. A shop is people who say good morning and mean it. That is what we sell first."</p>
+            </blockquote>
+            <figcaption>
+              <span class="mg-signature d-block">Ruth</span>
+              <span class="small text-body-secondary">Ruth Nakato, founder and manager</span>
+            </figcaption>
+          </figure>
+          <p class="mb-4">Meet some of the team at the till. Say hello next time you visit.</p>
+          <div class="row row-cols-3 row-cols-md-6 g-4">
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">EK</div>
+              <p class="fw-semibold mb-0">Esther</p>
+              <p class="small text-body-secondary mb-0">Central</p>
+            </div>
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">VM</div>
+              <p class="fw-semibold mb-0">Victor</p>
+              <p class="small text-body-secondary mb-0">Central</p>
+            </div>
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">IN</div>
+              <p class="fw-semibold mb-0">Irene</p>
+              <p class="small text-body-secondary mb-0">Northgate</p>
+            </div>
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">MA</div>
+              <p class="fw-semibold mb-0">Musa</p>
+              <p class="small text-body-secondary mb-0">Northgate</p>
+            </div>
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">JB</div>
+              <p class="fw-semibold mb-0">Joy</p>
+              <p class="small text-body-secondary mb-0">Lakeside</p>
+            </div>
+            <div class="col text-center">
+              <div class="rounded-circle bg-primary-subtle text-primary-emphasis fw-bold d-inline-grid mx-auto mb-2" style="width: 4rem; height: 4rem; place-items: center;" aria-hidden="true">FO</div>
+              <p class="fw-semibold mb-0">Felix</p>
+              <p class="small text-body-secondary mb-0">Lakeside</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="promise" class="mb-5">
+          <h2 class="mb-4">Our promise</h2>
+          <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>The price online is the price on the shelf.</li>
+            <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>Fresh bread and milk, every morning.</li>
+            <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>If something is wrong, we fix it the same day.</li>
+            <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>Your phone number stays with us. We never sell it.</li>
+          </ul>
+          <a href="products.html" class="btn btn-primary btn-lg mt-4">Start shopping</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mg-footer pt-5 pb-4 d-print-none">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-3">
+            <img src="images/logo.svg" width="34" height="34" alt="">
+            <span class="mg-brand text-white">Marigold<small>shop</small></span>
+          </a>
+          <p class="text-body-secondary">Your neighbourhood shop since 2009. Three branches, one friendly team.</p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" aria-label="Marigold on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Marigold on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Chat with Marigold on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-3">Shop</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="products.html">All products</a></li>
+                <li><a href="products.html">Groceries</a></li>
+                <li><a href="products.html">Household</a></li>
+                <li><a href="products.html">Stationery</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-3">Help</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="contact.html#faq">Delivery</a></li>
+                <li><a href="contact.html#faq">Click and collect</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="mb-3">Friday deals</h2>
+          <p class="text-body-secondary">One short email every Friday with the best prices of the week.</p>
+          <form class="d-flex gap-2" action="#">
+            <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span id="year">2026</span> Marigold Stores. Central, Northgate and Lakeside.</p>
+        <p class="mb-0 text-body-secondary">Marigold is a made-up shop. This site is the project for the AI Powered Bootstrap course.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/marigold.js"></script>
+</body>
+</html>

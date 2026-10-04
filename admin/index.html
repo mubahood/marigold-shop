@@ -1,0 +1,239 @@
+<!doctype html>
+<!--
+  Marigold Shop: admin/index.html
+  Bootstrap parts on this page: offcanvas, navbar, dropdown, button group, cards, shadows, table, badges, list group, progress, visually hidden
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Marigold Shop</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Marigold staff dashboard.">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg-body-tertiary">
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <!-- Dark top bar -->
+  <header class="navbar flex-nowrap mg-admin-top sticky-top px-3 py-2" data-bs-theme="dark">
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-link text-white d-lg-none px-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminSide" aria-controls="adminSide" aria-label="Open the side menu">
+        <i class="bi bi-list fs-4" aria-hidden="true"></i>
+      </button>
+      <a class="navbar-brand d-flex align-items-center gap-2 me-0" href="index.html">
+        <img src="../images/logo.svg" width="30" height="30" alt="">
+        <span class="mg-brand text-white fs-5">Marigold<small>admin</small></span>
+      </a>
+    </div>
+    <form class="d-none d-md-block flex-grow-1 mx-4" style="max-width: 28rem;" role="search">
+      <input class="form-control form-control-sm" type="search" placeholder="Search orders, products, customers" aria-label="Search the dashboard">
+    </form>
+    <div class="d-flex align-items-center gap-1">
+      <button type="button" class="btn mg-icon-btn text-white" id="themeToggle">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+      </button>
+      <div class="dropdown">
+        <button class="btn btn-link text-white text-decoration-none dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="rounded-circle bg-warning text-dark fw-bold d-inline-grid" style="width: 2rem; height: 2rem; place-items: center;" aria-hidden="true">RN</span>
+          <span class="d-none d-sm-inline">Ruth Nakato</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">My profile</a></li>
+          <li><a class="dropdown-item" href="../index.html">Back to the shop</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="../login.html">Log out</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="d-lg-flex">
+    <!-- Sidebar: a slide-in panel on phones, fixed on the left on laptops -->
+    <aside class="offcanvas-lg offcanvas-start mg-admin-side bg-body border-end" tabindex="-1" id="adminSide" aria-labelledby="adminSideLabel">
+      <div class="offcanvas-header border-bottom">
+        <h2 class="offcanvas-title h5" id="adminSideLabel">Menu</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#adminSide" aria-label="Close the menu"></button>
+      </div>
+      <div class="offcanvas-body d-block p-3">
+        <nav class="nav flex-column gap-1" aria-label="Dashboard menu">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="index.html"><i class="bi bi-speedometer2" aria-hidden="true"></i>Dashboard</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-receipt" aria-hidden="true"></i>Orders<span class="badge rounded-pill text-bg-primary ms-auto">12</span></a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-box-seam" aria-hidden="true"></i>Products</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="product-new.html"><i class="bi bi-plus-square" aria-hidden="true"></i>Add a product</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-people" aria-hidden="true"></i>Customers</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-shop" aria-hidden="true"></i>Branches</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-bar-chart" aria-hidden="true"></i>Reports</a>
+        </nav>
+        <hr>
+        <a class="nav-link d-flex align-items-center gap-2 px-3" href="../index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Back to the shop</a>
+      </div>
+    </aside>
+
+    <main id="main" class="flex-grow-1 p-3 p-lg-4" style="min-width: 0;">
+
+      <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+        <div>
+          <h1 class="h3 mb-0">Good morning, Ruth</h1>
+          <p class="small text-body-secondary mb-0">Thursday 1 October 2026, all branches</p>
+        </div>
+        <div class="ms-md-auto d-flex flex-wrap gap-2">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Show one branch">
+            <input type="radio" class="btn-check" name="dashBranch" id="dashAll" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="dashAll">All</label>
+            <input type="radio" class="btn-check" name="dashBranch" id="dashCentral" autocomplete="off">
+            <label class="btn btn-outline-primary" for="dashCentral">Central</label>
+            <input type="radio" class="btn-check" name="dashBranch" id="dashNorthgate" autocomplete="off">
+            <label class="btn btn-outline-primary" for="dashNorthgate">Northgate</label>
+            <input type="radio" class="btn-check" name="dashBranch" id="dashLakeside" autocomplete="off">
+            <label class="btn btn-outline-primary" for="dashLakeside">Lakeside</label>
+          </div>
+          <a href="product-new.html" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1" aria-hidden="true"></i>Add a product</a>
+        </div>
+      </div>
+
+      <!-- Four stat cards -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-3">
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h6 text-body-secondary mb-0" style="font-family: inherit;">Sales today</h2>
+                <i class="bi bi-graph-up-arrow text-success-emphasis fs-5" aria-hidden="true"></i>
+              </div>
+              <p class="mg-stat mb-1">$1,284.50</p>
+              <p class="small text-success-emphasis mb-0">Up 12% on last Thursday</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h6 text-body-secondary mb-0" style="font-family: inherit;">Orders today</h2>
+                <i class="bi bi-receipt text-success-emphasis fs-5" aria-hidden="true"></i>
+              </div>
+              <p class="mg-stat mb-1">46</p>
+              <p class="small text-success-emphasis mb-0">8 more than yesterday</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h6 text-body-secondary mb-0" style="font-family: inherit;">New customers</h2>
+                <i class="bi bi-person-plus text-secondary-emphasis fs-5" aria-hidden="true"></i>
+              </div>
+              <p class="mg-stat mb-1">9</p>
+              <p class="small text-secondary-emphasis mb-0">Same as last week</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h6 text-body-secondary mb-0" style="font-family: inherit;">Low on stock</h2>
+                <i class="bi bi-exclamation-triangle text-warning-emphasis fs-5" aria-hidden="true"></i>
+              </div>
+              <p class="mg-stat mb-1">5</p>
+              <p class="small text-warning-emphasis mb-0">Order before Friday</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-xl-8">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-transparent d-flex align-items-center py-3">
+              <h2 class="h6 mb-0" style="font-family: inherit;">Recent orders</h2>
+              <a href="#" class="small ms-auto">See all orders</a>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr class="small text-uppercase">
+                    <th scope="col">Order</th><th scope="col">Customer</th><th scope="col" class="d-none d-md-table-cell">Branch</th>
+                    <th scope="col" class="text-end">Total</th><th scope="col" class="text-end">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1046</a></td><td>Grace Achola</td><td class="d-none d-md-table-cell">Central</td><td class="text-end">$39.30</td><td class="text-end"><span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">Paid</span></td></tr>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1045</a></td><td>Peter Mwangi</td><td class="d-none d-md-table-cell">Northgate</td><td class="text-end">$12.45</td><td class="text-end"><span class="badge bg-info-subtle text-info-emphasis border border-info-subtle">Packing</span></td></tr>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1044</a></td><td>Amina Yusuf</td><td class="d-none d-md-table-cell">Lakeside</td><td class="text-end">$58.10</td><td class="text-end"><span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">On the way</span></td></tr>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1043</a></td><td>Daniel Osei</td><td class="d-none d-md-table-cell">Central</td><td class="text-end">$7.90</td><td class="text-end"><span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">Delivered</span></td></tr>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1042</a></td><td>Sarah Kintu</td><td class="d-none d-md-table-cell">Northgate</td><td class="text-end">$23.65</td><td class="text-end"><span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">Delivered</span></td></tr>
+                  <tr><td><a href="#" class="fw-semibold">#MG-1041</a></td><td>John Banda</td><td class="d-none d-md-table-cell">Lakeside</td><td class="text-end">$4.40</td><td class="text-end"><span class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle">Cancelled</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 d-flex flex-column gap-3">
+          <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent d-flex align-items-center py-3">
+              <h2 class="h6 mb-0" style="font-family: inherit;">Low on stock</h2>
+              <span class="badge bg-warning-subtle text-warning-emphasis ms-auto">5 items</span>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center"><div><span class="fw-semibold">Exercise books, 10 pack</span><br><span class="small text-body-secondary">Northgate</span></div><span class="badge bg-danger-subtle text-danger-emphasis">2 left</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center"><div><span class="fw-semibold">Batteries, AA 4 pack</span><br><span class="small text-body-secondary">Lakeside</span></div><span class="badge bg-warning-subtle text-warning-emphasis">3 left</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center"><div><span class="fw-semibold">Cooking oil, 3 litres</span><br><span class="small text-body-secondary">Northgate</span></div><span class="badge bg-warning-subtle text-warning-emphasis">4 left</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center"><div><span class="fw-semibold">Toothpaste, 150 ml</span><br><span class="small text-body-secondary">Lakeside</span></div><span class="badge bg-warning-subtle text-warning-emphasis">5 left</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center"><div><span class="fw-semibold">Yoghurt, 500 ml</span><br><span class="small text-body-secondary">Central</span></div><span class="badge bg-warning-subtle text-warning-emphasis">6 left</span></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="btn btn-outline-primary btn-sm w-100">Order more stock</a>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm">
+            <div class="card-body">
+              <h2 class="h6 mb-3" style="font-family: inherit;">Sales by branch this week</h2>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Central</span><span class="fw-semibold">$4,820.00</span></div>
+                <div class="progress" role="progressbar" aria-label="Central share of sales" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: .6rem;">
+                  <div class="progress-bar" style="width: 40%"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Northgate</span><span class="fw-semibold">$3,860.00</span></div>
+                <div class="progress" role="progressbar" aria-label="Northgate share of sales" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="height: .6rem;">
+                  <div class="progress-bar" style="width: 32%"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Lakeside</span><span class="fw-semibold">$3,370.00</span></div>
+                <div class="progress" role="progressbar" aria-label="Lakeside share of sales" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="height: .6rem;">
+                  <div class="progress-bar" style="width: 28%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="small text-body-secondary mt-5 mb-0">Marigold Stores staff area. Made-up data for the AI Powered Bootstrap course.</p>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/marigold.js"></script>
+</body>
+</html>

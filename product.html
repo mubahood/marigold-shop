@@ -1,0 +1,387 @@
+<!doctype html>
+<!--
+  Marigold Shop: product.html
+  Bootstrap parts on this page: breadcrumb, ratio, object fit, badges, tooltips, popover, button group, input group, collapse, tabs, table, cards, toast
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rice, 5 kg | Marigold Shop</title>
+  <meta name="description" content="Long grain white rice in a 5 kg bag. In stock at all three Marigold branches.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom d-print-none" aria-label="Main menu">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" width="38" height="38" alt="">
+        <span class="mg-brand">Marigold<small>shop</small></span>
+      </a>
+
+      <!-- These stay visible on phones, next to the menu button -->
+      <div class="d-flex align-items-center gap-1 order-lg-last ms-auto ms-lg-2">
+        <button type="button" class="btn mg-icon-btn" id="themeToggle">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+        </button>
+        <a href="cart.html" class="btn mg-icon-btn position-relative" aria-label="Cart, 8 items">
+          <i class="bi bi-bag fs-5" aria-hidden="true"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">8</span>
+        </a>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="my-2 my-lg-0 me-lg-3" role="search" action="products.html">
+          <div class="input-group">
+            <span class="input-group-text bg-body"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input class="form-control" type="search" id="siteSearch" name="q" placeholder="Search rice, soap, pens" aria-label="Search the shop">
+          </div>
+        </form>
+
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle px-0 px-lg-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>Account
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="login.html">Log in</a></li>
+            <li><a class="dropdown-item" href="register.html">Create an account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin/index.html"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Staff dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container pt-4">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="products.html">Shop</a></li>
+        <li class="breadcrumb-item"><a href="products.html">Groceries</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Rice</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-6">
+        <div class="ratio ratio-1x1 rounded-3 overflow-hidden border">
+          <img src="images/products/rice-5kg.webp" class="object-fit-cover" width="800" height="800" alt="A 5 kg bag of white rice">
+        </div>
+      </div>
+
+      <div class="col-lg-6 product-detail" data-id="rice-5kg">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="badge text-bg-dark">Best seller</span>
+          <span class="mg-eyebrow">Groceries</span>
+        </div>
+        <h1 class="display-5 mb-1">Rice</h1>
+        <p class="lead text-body-secondary">Long grain white rice, 5 kg bag</p>
+
+        <div class="d-flex justify-content-between align-items-center my-4">
+          <span class="mg-tag mg-tag-lg">$7.90</span>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary mg-icon-btn" data-bs-toggle="tooltip" data-bs-title="Save for later" aria-label="Save for later">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary mg-icon-btn" data-bs-toggle="tooltip" data-bs-title="Share this product" aria-label="Share this product">
+              <i class="bi bi-share" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 p-3 mb-4 rounded-3 bg-success-subtle text-success-emphasis">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <div><strong>In stock</strong> at all three branches. Order before 4pm and it reaches you today.</div>
+        </div>
+
+        <p class="fw-semibold mb-2">Pick it up from</p>
+        <div class="btn-group w-100 mb-2" role="group" aria-label="Choose pickup branch">
+          <input type="radio" class="btn-check" name="branch" id="pickCentral" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="pickCentral">Central</label>
+          <input type="radio" class="btn-check" name="branch" id="pickNorthgate" autocomplete="off">
+          <label class="btn btn-outline-primary" for="pickNorthgate">Northgate</label>
+          <input type="radio" class="btn-check" name="branch" id="pickLakeside" autocomplete="off">
+          <label class="btn btn-outline-primary" for="pickLakeside">Lakeside</label>
+        </div>
+        <button type="button" class="btn btn-link btn-sm px-0 mb-4" data-bs-toggle="popover" data-bs-trigger="focus"
+                data-bs-title="What is click and collect?"
+                data-bs-content="Order online, then pick up your bag at the branch you choose. It is free, and your order is ready in one hour.">
+          <i class="bi bi-question-circle me-1" aria-hidden="true"></i>What is click and collect?
+        </button>
+
+        <div class="row g-2 mb-4">
+          <div class="col-5 col-sm-4 col-lg-5 col-xl-4">
+            <div class="input-group input-group-lg">
+              <button class="btn btn-outline-secondary" type="button" aria-label="One less">&minus;</button>
+              <input type="number" class="form-control text-center px-1 mg-qty" value="1" min="1" aria-label="Quantity">
+              <button class="btn btn-outline-secondary" type="button" aria-label="One more">+</button>
+            </div>
+          </div>
+          <div class="col-7 col-sm-8 col-lg-7 col-xl-8">
+            <button type="button" class="btn btn-primary btn-lg w-100 js-add-to-cart" data-id="rice-5kg">
+              <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border-top border-bottom py-3">
+          <a class="d-flex align-items-center text-reset text-decoration-none" data-bs-toggle="collapse" href="#delivery" role="button" aria-expanded="false" aria-controls="delivery">
+            <i class="bi bi-truck me-2" aria-hidden="true"></i><span class="fw-semibold">Delivery and returns</span>
+            <i class="bi bi-chevron-down ms-auto" aria-hidden="true"></i>
+          </a>
+          <div class="collapse" id="delivery">
+            <p class="small text-body-secondary pt-3 mb-0">Delivery costs $2.00, or nothing on orders over $50. We deliver from 8am to 8pm. Not happy? Bring it back within 7 days with your receipt and we will swap it or give you your money back.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <section class="mt-5">
+      <ul class="nav nav-tabs flex-nowrap overflow-x-auto text-nowrap" id="productTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Description</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="size-tab" data-bs-toggle="tab" data-bs-target="#size" type="button" role="tab" aria-controls="size" aria-selected="false">Size and storage</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews <span class="badge rounded-pill bg-body-secondary text-body">3</span></button>
+        </li>
+      </ul>
+      <div class="tab-content border border-top-0 rounded-bottom p-4" id="productTabsContent">
+        <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab" tabindex="0">
+          <p>Our rice has long grains that stay apart when you cook them. It is cleaned twice before packing, so you will not find stones.</p>
+          <p class="mb-0"><strong>How to cook it:</strong> rinse one cup of rice, add two cups of water and a pinch of salt, then cook on low heat for 15 minutes with the lid on.</p>
+        </div>
+        <div class="tab-pane fade" id="size" role="tabpanel" aria-labelledby="size-tab" tabindex="0">
+          <table class="table table-sm mb-0" style="max-width: 32rem;">
+            <tbody>
+              <tr><th scope="row" class="fw-semibold">Weight</th><td>5 kg</td></tr>
+              <tr><th scope="row" class="fw-semibold">Serves</th><td>About 50 plates</td></tr>
+              <tr><th scope="row" class="fw-semibold">Store</th><td>In a cool, dry place. Close the bag after use.</td></tr>
+              <tr><th scope="row" class="fw-semibold">Best before</th><td>12 months from packing</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+          <p class="mb-4"><span class="fs-3 fw-bold me-2">4.7</span><span class="text-warning" aria-hidden="true"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span><span class="visually-hidden">4.7 out of 5 stars</span> <span class="small text-body-secondary">from 3 reviews</span></p>
+          <div class="vstack gap-4">
+            <div>
+              <p class="fw-semibold mb-0">Grace A. <span class="fw-normal small text-body-secondary">, Northgate</span></p>
+              <p class="mb-0">Soft and clean. My children ask for it every Sunday.</p>
+            </div>
+            <div>
+              <p class="fw-semibold mb-0">Daniel O. <span class="fw-normal small text-body-secondary">, Central</span></p>
+              <p class="mb-0">Good price for 5 kg. Delivery came in one hour.</p>
+            </div>
+            <div>
+              <p class="fw-semibold mb-0">Amina Y. <span class="fw-normal small text-body-secondary">, Lakeside</span></p>
+              <p class="mb-0">Nice rice. The bag was a little torn, but the shop changed it the same day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related products -->
+    <section class="mt-5">
+      <h2 class="h3 mb-4">People also buy</h2>
+      <div class="row row-cols-2 row-cols-lg-4 g-3">
+        <div class="col">
+          <article class="card h-100 product-card" data-id="cooking-oil-3l" data-category="Groceries" data-price="8.25">
+            <div class="position-relative">
+              <img src="images/products/cooking-oil-3l.webp" class="card-img-top" width="800" height="800" alt="A 3 litre bottle of yellow cooking oil" loading="lazy">
+                <span class="badge text-bg-warning position-absolute top-0 start-0 m-2">Save $0.50</span>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h6 card-title mb-1">
+                <a href="product.html" class="stretched-link text-reset text-decoration-none">Cooking oil</a>
+              </h3>
+              <p class="small text-body-secondary mb-3">3 litres</p>
+              <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                <span class="mg-tag">$8.25</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+              <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="cooking-oil-3l">
+                <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100 product-card" data-id="sugar-2kg" data-category="Groceries" data-price="3.40">
+            <div class="position-relative">
+              <img src="images/products/sugar-2kg.webp" class="card-img-top" width="800" height="800" alt="A 2 kg bag of sugar" loading="lazy">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h6 card-title mb-1">
+                <a href="product.html" class="stretched-link text-reset text-decoration-none">Sugar</a>
+              </h3>
+              <p class="small text-body-secondary mb-3">2 kg</p>
+              <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                <span class="mg-tag">$3.40</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+              <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="sugar-2kg">
+                <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100 product-card" data-id="maize-flour-2kg" data-category="Groceries" data-price="2.60">
+            <div class="position-relative">
+              <img src="images/products/maize-flour-2kg.webp" class="card-img-top" width="800" height="800" alt="A 2 kg bag of maize flour" loading="lazy">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h6 card-title mb-1">
+                <a href="product.html" class="stretched-link text-reset text-decoration-none">Maize flour</a>
+              </h3>
+              <p class="small text-body-secondary mb-3">2 kg</p>
+              <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                <span class="mg-tag">$2.60</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+              <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="maize-flour-2kg">
+                <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100 product-card" data-id="tea-leaves-500g" data-category="Groceries" data-price="2.95">
+            <div class="position-relative">
+              <img src="images/products/tea-leaves-500g.webp" class="card-img-top" width="800" height="800" alt="A green 500 g box of tea leaves" loading="lazy">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h6 card-title mb-1">
+                <a href="product.html" class="stretched-link text-reset text-decoration-none">Tea leaves</a>
+              </h3>
+              <p class="small text-body-secondary mb-3">500 g</p>
+              <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                <span class="mg-tag">$2.95</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+              <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="tea-leaves-500g">
+                <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mg-footer pt-5 pb-4 d-print-none">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-3">
+            <img src="images/logo.svg" width="34" height="34" alt="">
+            <span class="mg-brand text-white">Marigold<small>shop</small></span>
+          </a>
+          <p class="text-body-secondary">Your neighbourhood shop since 2009. Three branches, one friendly team.</p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" aria-label="Marigold on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Marigold on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Chat with Marigold on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-3">Shop</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="products.html">All products</a></li>
+                <li><a href="products.html">Groceries</a></li>
+                <li><a href="products.html">Household</a></li>
+                <li><a href="products.html">Stationery</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-3">Help</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="contact.html#faq">Delivery</a></li>
+                <li><a href="contact.html#faq">Click and collect</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="mb-3">Friday deals</h2>
+          <p class="text-body-secondary">One short email every Friday with the best prices of the week.</p>
+          <form class="d-flex gap-2" action="#">
+            <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span id="year">2026</span> Marigold Stores. Central, Northgate and Lakeside.</p>
+        <p class="mb-0 text-body-secondary">Marigold is a made-up shop. This site is the project for the AI Powered Bootstrap course.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- The toast that says "Added to your cart" -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="cartToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <img src="images/logo.svg" width="20" height="20" class="me-2" alt="">
+        <strong class="me-auto">Marigold Shop</strong>
+        <small>Just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <i class="bi bi-check-circle-fill text-success me-1" aria-hidden="true"></i>
+        Added to your cart. <a href="cart.html">See your cart</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/marigold.js"></script>
+</body>
+</html>

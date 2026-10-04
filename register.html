@@ -1,0 +1,287 @@
+<!doctype html>
+<!--
+  Marigold Shop: register.html
+  Bootstrap parts on this page: every form control: floating labels, input group, select, radios, checkboxes, switch, range, date, file, textarea, help text, validation
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create an account | Marigold Shop</title>
+  <meta name="description" content="Create a free Marigold account for faster checkout and Friday deals.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom d-print-none" aria-label="Main menu">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" width="38" height="38" alt="">
+        <span class="mg-brand">Marigold<small>shop</small></span>
+      </a>
+
+      <!-- These stay visible on phones, next to the menu button -->
+      <div class="d-flex align-items-center gap-1 order-lg-last ms-auto ms-lg-2">
+        <button type="button" class="btn mg-icon-btn" id="themeToggle">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+        </button>
+        <a href="cart.html" class="btn mg-icon-btn position-relative" aria-label="Cart, 8 items">
+          <i class="bi bi-bag fs-5" aria-hidden="true"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">8</span>
+        </a>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="my-2 my-lg-0 me-lg-3" role="search" action="products.html">
+          <div class="input-group">
+            <span class="input-group-text bg-body"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input class="form-control" type="search" id="siteSearch" name="q" placeholder="Search rice, soap, pens" aria-label="Search the shop">
+          </div>
+        </form>
+
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle px-0 px-lg-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>Account
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="login.html">Log in</a></li>
+            <li><a class="dropdown-item" href="register.html">Create an account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin/index.html"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Staff dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <p class="mg-eyebrow mb-2">It takes one minute</p>
+        <h1 class="display-6 mb-2">Create your account</h1>
+        <p class="text-body-secondary mb-4">You get faster checkout, your order history, and our Friday deals.</p>
+
+        <form id="registerForm" class="row g-3 needs-validation" novalidate>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="regFirst" placeholder="First name" autocomplete="given-name" required>
+              <label for="regFirst">First name</label>
+              <div class="invalid-feedback">Please enter your first name.</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="regLast" placeholder="Last name" autocomplete="family-name" required>
+              <label for="regLast">Last name</label>
+              <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" autocomplete="email" required>
+              <label for="regEmail">Email</label>
+              <div class="invalid-feedback">Please enter an email like name@example.com.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="regPhone" class="form-label">Phone</label>
+            <div class="input-group">
+              <span class="input-group-text">+000</span>
+              <input type="tel" class="form-control" id="regPhone" placeholder="700 555 180" autocomplete="tel-national" aria-describedby="regPhoneHelp">
+            </div>
+            <div id="regPhoneHelp" class="form-text">Our rider calls this number when your order arrives.</div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating">
+              <input type="password" class="form-control" id="regPassword" placeholder="Password" minlength="8" autocomplete="new-password" aria-describedby="regPasswordHelp" required>
+              <label for="regPassword">Password</label>
+              <div class="invalid-feedback">Your password needs at least 8 characters.</div>
+            </div>
+            <div id="regPasswordHelp" class="form-text">At least 8 characters. Mix letters and numbers.</div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating">
+              <select class="form-select" id="regBranch" required>
+                <option selected disabled value="">Choose one</option>
+                <option>Central</option>
+                <option>Northgate</option>
+                <option>Lakeside</option>
+              </select>
+              <label for="regBranch">Your nearest branch</label>
+              <div class="invalid-feedback">Please choose a branch.</div>
+            </div>
+          </div>
+
+          <fieldset class="col-12">
+            <legend class="form-label fs-6">How should we contact you?</legend>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="contactBy" id="byEmail" checked>
+              <label class="form-check-label" for="byEmail">Email</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="contactBy" id="bySms">
+              <label class="form-check-label" for="bySms">SMS</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="contactBy" id="byWhatsapp">
+              <label class="form-check-label" for="byWhatsapp">WhatsApp</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="col-12">
+            <legend class="form-label fs-6">What do you buy most? <span class="text-body-secondary">(choose any)</span></legend>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="likeGroceries" checked>
+              <label class="form-check-label" for="likeGroceries">Groceries</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="likeHousehold">
+              <label class="form-check-label" for="likeHousehold">Household</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="likeStationery">
+              <label class="form-check-label" for="likeStationery">Stationery</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="likeDrinks">
+              <label class="form-check-label" for="likeDrinks">Drinks</label>
+            </div>
+          </fieldset>
+
+          <div class="col-12">
+            <label for="regOften" class="form-label">How often do you shop with us?</label>
+            <input type="range" class="form-range" id="regOften" min="1" max="4" value="2">
+            <div class="d-flex justify-content-between small text-body-secondary" aria-hidden="true">
+              <span>Rarely</span><span>Monthly</span><span>Weekly</span><span>Daily</span>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="regBirthday" class="form-label">Birthday <span class="text-body-secondary">(optional)</span></label>
+            <input type="date" class="form-control" id="regBirthday" aria-describedby="regBirthdayHelp">
+            <div id="regBirthdayHelp" class="form-text">We send you a small gift on your birthday.</div>
+          </div>
+          <div class="col-sm-6">
+            <label for="regPhoto" class="form-label">Profile photo <span class="text-body-secondary">(optional)</span></label>
+            <input class="form-control" type="file" id="regPhoto" accept="image/*">
+          </div>
+
+          <div class="col-12">
+            <label for="regNotes" class="form-label">Delivery notes <span class="text-body-secondary">(optional)</span></label>
+            <textarea class="form-control" id="regNotes" rows="2" placeholder="For example: blue gate, second house on the left"></textarea>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="regDeals" checked>
+              <label class="form-check-label" for="regDeals">Send me the Friday deals email</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="regTerms" required>
+              <label class="form-check-label" for="regTerms">I agree to the <a href="#">shop rules</a> and the <a href="#">privacy promise</a></label>
+              <div class="invalid-feedback">You must agree before you can join.</div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg w-100">Create my account</button>
+          </div>
+        </form>
+
+        <p class="text-center small mt-4 mb-0">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mg-footer pt-5 pb-4 d-print-none">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-3">
+            <img src="images/logo.svg" width="34" height="34" alt="">
+            <span class="mg-brand text-white">Marigold<small>shop</small></span>
+          </a>
+          <p class="text-body-secondary">Your neighbourhood shop since 2009. Three branches, one friendly team.</p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" aria-label="Marigold on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Marigold on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Chat with Marigold on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-3">Shop</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="products.html">All products</a></li>
+                <li><a href="products.html">Groceries</a></li>
+                <li><a href="products.html">Household</a></li>
+                <li><a href="products.html">Stationery</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-3">Help</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="contact.html#faq">Delivery</a></li>
+                <li><a href="contact.html#faq">Click and collect</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="mb-3">Friday deals</h2>
+          <p class="text-body-secondary">One short email every Friday with the best prices of the week.</p>
+          <form class="d-flex gap-2" action="#">
+            <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span id="year">2026</span> Marigold Stores. Central, Northgate and Lakeside.</p>
+        <p class="mb-0 text-body-secondary">Marigold is a made-up shop. This site is the project for the AI Powered Bootstrap course.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/marigold.js"></script>
+</body>
+</html>

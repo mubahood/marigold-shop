@@ -1,0 +1,209 @@
+<!doctype html>
+<!--
+  Marigold Shop: admin/product-new.html
+  Bootstrap parts on this page: breadcrumb, cards, form controls, input group, select, file input, switches, ratio, validation, offcanvas
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add a product | Marigold Shop</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Marigold staff dashboard.">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg-body-tertiary">
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <!-- Dark top bar -->
+  <header class="navbar flex-nowrap mg-admin-top sticky-top px-3 py-2" data-bs-theme="dark">
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-link text-white d-lg-none px-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminSide" aria-controls="adminSide" aria-label="Open the side menu">
+        <i class="bi bi-list fs-4" aria-hidden="true"></i>
+      </button>
+      <a class="navbar-brand d-flex align-items-center gap-2 me-0" href="index.html">
+        <img src="../images/logo.svg" width="30" height="30" alt="">
+        <span class="mg-brand text-white fs-5">Marigold<small>admin</small></span>
+      </a>
+    </div>
+    <form class="d-none d-md-block flex-grow-1 mx-4" style="max-width: 28rem;" role="search">
+      <input class="form-control form-control-sm" type="search" placeholder="Search orders, products, customers" aria-label="Search the dashboard">
+    </form>
+    <div class="d-flex align-items-center gap-1">
+      <button type="button" class="btn mg-icon-btn text-white" id="themeToggle">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+      </button>
+      <div class="dropdown">
+        <button class="btn btn-link text-white text-decoration-none dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="rounded-circle bg-warning text-dark fw-bold d-inline-grid" style="width: 2rem; height: 2rem; place-items: center;" aria-hidden="true">RN</span>
+          <span class="d-none d-sm-inline">Ruth Nakato</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">My profile</a></li>
+          <li><a class="dropdown-item" href="../index.html">Back to the shop</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="../login.html">Log out</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="d-lg-flex">
+    <!-- Sidebar: a slide-in panel on phones, fixed on the left on laptops -->
+    <aside class="offcanvas-lg offcanvas-start mg-admin-side bg-body border-end" tabindex="-1" id="adminSide" aria-labelledby="adminSideLabel">
+      <div class="offcanvas-header border-bottom">
+        <h2 class="offcanvas-title h5" id="adminSideLabel">Menu</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#adminSide" aria-label="Close the menu"></button>
+      </div>
+      <div class="offcanvas-body d-block p-3">
+        <nav class="nav flex-column gap-1" aria-label="Dashboard menu">
+              <a class="nav-link d-flex align-items-center gap-2" href="index.html"><i class="bi bi-speedometer2" aria-hidden="true"></i>Dashboard</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-receipt" aria-hidden="true"></i>Orders<span class="badge rounded-pill text-bg-primary ms-auto">12</span></a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-box-seam" aria-hidden="true"></i>Products</a>
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="product-new.html"><i class="bi bi-plus-square" aria-hidden="true"></i>Add a product</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-people" aria-hidden="true"></i>Customers</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-shop" aria-hidden="true"></i>Branches</a>
+              <a class="nav-link d-flex align-items-center gap-2" href="#"><i class="bi bi-bar-chart" aria-hidden="true"></i>Reports</a>
+        </nav>
+        <hr>
+        <a class="nav-link d-flex align-items-center gap-2 px-3" href="../index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Back to the shop</a>
+      </div>
+    </aside>
+
+    <main id="main" class="flex-grow-1 p-3 p-lg-4" style="min-width: 0;">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="#">Products</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add a product</li>
+        </ol>
+      </nav>
+      <h1 class="h3 mb-4">Add a product</h1>
+
+      <form id="productForm" class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4 row g-3">
+                <div class="col-12">
+                  <label for="pName" class="form-label">Product name</label>
+                  <input type="text" class="form-control" id="pName" placeholder="For example: Brown sugar" required>
+                  <div class="invalid-feedback">Every product needs a name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="pCategory" class="form-label">Category</label>
+                  <select class="form-select" id="pCategory" required>
+                    <option selected disabled value="">Choose a category</option>
+                    <option>Groceries</option>
+                    <option>Dairy</option>
+                    <option>Bakery</option>
+                    <option>Household</option>
+                    <option>Personal care</option>
+                    <option>Stationery</option>
+                    <option>Drinks</option>
+                  </select>
+                  <div class="invalid-feedback">Please choose a category.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="pSize" class="form-label">Size</label>
+                  <input type="text" class="form-control" id="pSize" placeholder="For example: 1 kg" required>
+                  <div class="invalid-feedback">Please add the size.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="pPrice" class="form-label">Price</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="pPrice" min="0.01" step="0.01" placeholder="0.00" required>
+                    <div class="invalid-feedback">Please add a price above $0.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="pWas" class="form-label">Old price <span class="text-body-secondary">(optional)</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="pWas" min="0" step="0.01" placeholder="0.00" aria-describedby="pWasHelp">
+                  </div>
+                  <div id="pWasHelp" class="form-text">Fill this only when the product is on offer.</div>
+                </div>
+                <div class="col-12">
+                  <label for="pDesc" class="form-label">Description</label>
+                  <textarea class="form-control" id="pDesc" rows="4" placeholder="Two short sentences. What is it, and why will people like it?"></textarea>
+                </div>
+                <fieldset class="col-12">
+                  <legend class="form-label fs-6">Stock at each branch</legend>
+                  <div class="row g-2">
+                    <div class="col-4"><label for="sCentral" class="form-label small">Central</label><input type="number" class="form-control" id="sCentral" min="0" value="0"></div>
+                    <div class="col-4"><label for="sNorthgate" class="form-label small">Northgate</label><input type="number" class="form-control" id="sNorthgate" min="0" value="0"></div>
+                    <div class="col-4"><label for="sLakeside" class="form-label small">Lakeside</label><input type="number" class="form-control" id="sLakeside" min="0" value="0"></div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex flex-column gap-3">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h2 class="h6 mb-3" style="font-family: inherit;">Photo</h2>
+                <div class="ratio ratio-1x1 bg-body-tertiary border rounded-3 mb-3">
+                  <div class="d-flex flex-column align-items-center justify-content-center text-body-secondary">
+                    <i class="bi bi-image fs-1" aria-hidden="true"></i>
+                    <span class="small">Square photo, 800 by 800</span>
+                  </div>
+                </div>
+                <label for="pPhoto" class="visually-hidden">Choose a photo</label>
+                <input class="form-control" type="file" id="pPhoto" accept="image/webp,image/jpeg,image/png">
+              </div>
+            </div>
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h2 class="h6 mb-3" style="font-family: inherit;">Show it</h2>
+                <div class="form-check form-switch mb-2">
+                  <input class="form-check-input" type="checkbox" role="switch" id="pVisible" checked>
+                  <label class="form-check-label" for="pVisible">Show in the shop</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" role="switch" id="pFeatured">
+                  <label class="form-check-label" for="pFeatured">Show on the home page</label>
+                </div>
+                <label for="pBadge" class="form-label">Label on the card</label>
+                <select class="form-select" id="pBadge">
+                  <option selected>None</option>
+                  <option>Best seller</option>
+                  <option>Fresh today</option>
+                  <option>New</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
+          <a href="index.html" class="btn btn-link">Cancel</a>
+          <button type="button" class="btn btn-outline-secondary">Save as draft</button>
+          <button type="submit" class="btn btn-primary px-4">Save product</button>
+        </div>
+      </form>
+
+      <p class="small text-body-secondary mt-5 mb-0">Marigold Stores staff area. Made-up data for the AI Powered Bootstrap course.</p>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/marigold.js"></script>
+</body>
+</html>

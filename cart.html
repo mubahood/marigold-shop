@@ -1,0 +1,312 @@
+<!doctype html>
+<!--
+  Marigold Shop: cart.html
+  Bootstrap parts on this page: table, table responsive, form controls, progress, list group, spinner, modal, alert, print utilities
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your cart | Marigold Shop</title>
+  <meta name="description" content="The items in your Marigold cart, with totals and delivery.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom d-print-none" aria-label="Main menu">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" width="38" height="38" alt="">
+        <span class="mg-brand">Marigold<small>shop</small></span>
+      </a>
+
+      <!-- These stay visible on phones, next to the menu button -->
+      <div class="d-flex align-items-center gap-1 order-lg-last ms-auto ms-lg-2">
+        <button type="button" class="btn mg-icon-btn" id="themeToggle">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+        </button>
+        <a href="cart.html" class="btn mg-icon-btn position-relative" aria-label="Cart, 8 items">
+          <i class="bi bi-bag fs-5" aria-hidden="true"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">8</span>
+        </a>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="my-2 my-lg-0 me-lg-3" role="search" action="products.html">
+          <div class="input-group">
+            <span class="input-group-text bg-body"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input class="form-control" type="search" id="siteSearch" name="q" placeholder="Search rice, soap, pens" aria-label="Search the shop">
+          </div>
+        </form>
+
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle px-0 px-lg-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>Account
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="login.html">Log in</a></li>
+            <li><a class="dropdown-item" href="register.html">Create an account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin/index.html"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Staff dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container pt-4 pt-lg-5">
+
+    <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+      <h1 class="display-6 mb-0">Your cart</h1>
+      <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fs-6">8 items</span>
+      <a href="products.html" class="btn btn-outline-secondary ms-auto d-print-none"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Continue shopping</a>
+    </div>
+
+    <!-- Course 3 shows this alert when the cart is empty -->
+    <div class="alert alert-info d-none" id="cartEmpty" role="status">
+      <i class="bi bi-bag me-2" aria-hidden="true"></i>Your cart is empty. <a href="products.html" class="alert-link">Find something you need</a>.
+    </div>
+
+    <div class="mb-4 d-print-none">
+      <p class="mb-2">You are <strong>$12.70</strong> away from <strong>free delivery</strong>.</p>
+      <div class="progress" role="progressbar" aria-label="Progress to free delivery" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: .75rem;">
+        <div class="progress-bar" style="width: 75%"></div>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-8">
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <caption class="small">Prices include tax. Delivery is free on orders over $50.</caption>
+            <thead>
+              <tr class="small text-uppercase">
+                <th scope="col">Item</th>
+                <th scope="col" class="text-end">Price</th>
+                <th scope="col" class="text-end">Qty</th>
+                <th scope="col" class="text-end">Total</th>
+                <th scope="col" class="d-print-none"><span class="visually-hidden">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="cartItems">
+              <tr data-id="rice-5kg">
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="images/products/rice-5kg.webp" class="mg-thumb rounded-2 border d-none d-sm-block" width="56" height="56" alt="">
+                    <div><span class="fw-semibold">Rice</span><br><span class="small text-body-secondary">5 kg</span></div>
+                  </div>
+                </td>
+                <td class="text-end">$7.90</td>
+                <td class="text-end"><input type="number" class="form-control form-control-sm ms-auto text-end" style="width: 4.5rem;" value="2" min="1" aria-label="How many rice"></td>
+                <td class="text-end fw-semibold">$15.80</td>
+                <td class="text-end d-print-none">
+                  <button type="button" class="btn btn-sm btn-link link-danger" data-bs-toggle="modal" data-bs-target="#removeItem" aria-label="Remove rice">
+                    <i class="bi bi-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="cooking-oil-3l">
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="images/products/cooking-oil-3l.webp" class="mg-thumb rounded-2 border d-none d-sm-block" width="56" height="56" alt="">
+                    <div><span class="fw-semibold">Cooking oil</span><br><span class="small text-body-secondary">3 litres</span></div>
+                  </div>
+                </td>
+                <td class="text-end">$8.25</td>
+                <td class="text-end"><input type="number" class="form-control form-control-sm ms-auto text-end" style="width: 4.5rem;" value="1" min="1" aria-label="How many cooking oil"></td>
+                <td class="text-end fw-semibold">$8.25</td>
+                <td class="text-end d-print-none">
+                  <button type="button" class="btn btn-sm btn-link link-danger" data-bs-toggle="modal" data-bs-target="#removeItem" aria-label="Remove cooking oil">
+                    <i class="bi bi-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="tea-leaves-500g">
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="images/products/tea-leaves-500g.webp" class="mg-thumb rounded-2 border d-none d-sm-block" width="56" height="56" alt="">
+                    <div><span class="fw-semibold">Tea leaves</span><br><span class="small text-body-secondary">500 g</span></div>
+                  </div>
+                </td>
+                <td class="text-end">$2.95</td>
+                <td class="text-end"><input type="number" class="form-control form-control-sm ms-auto text-end" style="width: 4.5rem;" value="3" min="1" aria-label="How many tea leaves"></td>
+                <td class="text-end fw-semibold">$8.85</td>
+                <td class="text-end d-print-none">
+                  <button type="button" class="btn btn-sm btn-link link-danger" data-bs-toggle="modal" data-bs-target="#removeItem" aria-label="Remove tea leaves">
+                    <i class="bi bi-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="bar-soap-800g">
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="images/products/bar-soap-800g.webp" class="mg-thumb rounded-2 border d-none d-sm-block" width="56" height="56" alt="">
+                    <div><span class="fw-semibold">Bar soap</span><br><span class="small text-body-secondary">800 g</span></div>
+                  </div>
+                </td>
+                <td class="text-end">$2.20</td>
+                <td class="text-end"><input type="number" class="form-control form-control-sm ms-auto text-end" style="width: 4.5rem;" value="2" min="1" aria-label="How many bar soap"></td>
+                <td class="text-end fw-semibold">$4.40</td>
+                <td class="text-end d-print-none">
+                  <button type="button" class="btn btn-sm btn-link link-danger" data-bs-toggle="modal" data-bs-target="#removeItem" aria-label="Remove bar soap">
+                    <i class="bi bi-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row" colspan="3" class="text-end fw-normal">Subtotal</th><td class="text-end">$37.30</td><td class="d-print-none"></td></tr>
+              <tr><th scope="row" colspan="3" class="text-end fw-normal">Delivery</th><td class="text-end">$2.00</td><td class="d-print-none"></td></tr>
+              <tr><th scope="row" colspan="3" class="text-end">Total</th><td class="text-end fw-bold">$39.30</td><td class="d-print-none"></td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Order summary, styled like a till receipt -->
+      <div class="col-lg-4">
+        <!-- data-bs-theme="light" keeps the receipt white, even in dark mode -->
+        <aside class="mg-receipt" data-bs-theme="light" aria-labelledby="summaryTitle">
+          <div class="text-center mb-3">
+            <img src="images/logo.svg" width="40" height="40" alt="">
+            <p class="fw-bold mb-0 mt-2">MARIGOLD STORES</p>
+            <h2 id="summaryTitle" class="h6 mb-0" style="font-family: inherit;">Order summary</h2>
+          </div>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item d-flex justify-content-between px-0"><span>Items (8)</span><span>$37.30</span></li>
+            <li class="list-group-item d-flex justify-content-between px-0"><span>Delivery</span><span>$2.00</span></li>
+            <li class="list-group-item d-flex justify-content-between px-0 mg-total"><span>Total</span><span>$39.30</span></li>
+          </ul>
+
+          <fieldset class="mb-3">
+            <legend class="small fw-bold">How do you want it?</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="getIt" id="getDeliver" checked>
+              <label class="form-check-label" for="getDeliver">Bring it to my door</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="getIt" id="getCollect">
+              <label class="form-check-label" for="getCollect">I will collect it from Central</label>
+            </div>
+          </fieldset>
+
+          <div class="d-grid gap-2 d-print-none">
+            <a href="#" class="btn btn-primary btn-lg">Go to checkout</a>
+            <button type="button" class="btn btn-outline-secondary" disabled>Mobile money: coming soon</button>
+          </div>
+          <div class="d-flex align-items-center justify-content-center gap-2 small mt-3 d-print-none">
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status">Checking stock at Central</span>
+          </div>
+          <p class="text-center small mt-4 mb-0">*** Thank you for shopping local ***</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Remove item, asks before it removes -->
+  <div class="modal fade" id="removeItem" tabindex="-1" aria-labelledby="removeItemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="removeItemLabel">Remove this item?</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">It will be taken out of your cart. You can add it again any time.</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep it</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mg-footer pt-5 pb-4 d-print-none">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-3">
+            <img src="images/logo.svg" width="34" height="34" alt="">
+            <span class="mg-brand text-white">Marigold<small>shop</small></span>
+          </a>
+          <p class="text-body-secondary">Your neighbourhood shop since 2009. Three branches, one friendly team.</p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" aria-label="Marigold on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Marigold on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Chat with Marigold on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-3">Shop</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="products.html">All products</a></li>
+                <li><a href="products.html">Groceries</a></li>
+                <li><a href="products.html">Household</a></li>
+                <li><a href="products.html">Stationery</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-3">Help</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="contact.html#faq">Delivery</a></li>
+                <li><a href="contact.html#faq">Click and collect</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="mb-3">Friday deals</h2>
+          <p class="text-body-secondary">One short email every Friday with the best prices of the week.</p>
+          <form class="d-flex gap-2" action="#">
+            <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span id="year">2026</span> Marigold Stores. Central, Northgate and Lakeside.</p>
+        <p class="mb-0 text-body-secondary">Marigold is a made-up shop. This site is the project for the AI Powered Bootstrap course.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/marigold.js"></script>
+</body>
+</html>

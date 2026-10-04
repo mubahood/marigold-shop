@@ -1,0 +1,632 @@
+<!doctype html>
+<!--
+  Marigold Shop: products.html
+  Bootstrap parts on this page: breadcrumb, grid, list group, offcanvas, form range, switch, dropdown, cards, modal, toast, pagination
+  Marigold is a made-up shop. Every name, phone number and address is invented.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop all products | Marigold Shop</title>
+  <meta name="description" content="Browse all 16 Marigold products: groceries, dairy, bread, household goods, stationery and drinks.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Fraunces for headings, Figtree for text, Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Figtree:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600..800&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 and Bootstrap Icons from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Our own styles come last, so they win -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-primary z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom d-print-none" aria-label="Main menu">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" width="38" height="38" alt="">
+        <span class="mg-brand">Marigold<small>shop</small></span>
+      </a>
+
+      <!-- These stay visible on phones, next to the menu button -->
+      <div class="d-flex align-items-center gap-1 order-lg-last ms-auto ms-lg-2">
+        <button type="button" class="btn mg-icon-btn" id="themeToggle">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i><span class="visually-hidden">Switch to dark mode</span>
+        </button>
+        <a href="cart.html" class="btn mg-icon-btn position-relative" aria-label="Cart, 8 items">
+          <i class="bi bi-bag fs-5" aria-hidden="true"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">8</span>
+        </a>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="products.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="my-2 my-lg-0 me-lg-3" role="search" action="products.html">
+          <div class="input-group">
+            <span class="input-group-text bg-body"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input class="form-control" type="search" id="siteSearch" name="q" placeholder="Search rice, soap, pens" aria-label="Search the shop">
+          </div>
+        </form>
+
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle px-0 px-lg-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>Account
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="login.html">Log in</a></li>
+            <li><a class="dropdown-item" href="register.html">Create an account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin/index.html"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Staff dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container pt-4">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+      </ol>
+    </nav>
+
+    <div class="mb-4">
+      <h1 class="display-5 mb-2">Shop</h1>
+      <p class="text-body-secondary mb-0">Everything you need for the week, from our three branches. Prices include tax.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Filters: a side column on laptops, a slide-in panel on phones -->
+      <div class="col-lg-3">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="filters" aria-labelledby="filtersLabel">
+          <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="filtersLabel">Filters</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#filters" aria-label="Close the filters"></button>
+          </div>
+          <div class="offcanvas-body flex-column">
+            <h2 class="mg-eyebrow mb-3">Category</h2>
+            <div class="list-group mb-4" id="categoryFilter">
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center active" data-category="all" aria-current="true">All products <span class="badge rounded-pill bg-body text-body">16</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Groceries">Groceries <span class="badge rounded-pill bg-body-secondary text-body">5</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Dairy">Dairy <span class="badge rounded-pill bg-body-secondary text-body">2</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Bakery">Bakery <span class="badge rounded-pill bg-body-secondary text-body">1</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Household">Household <span class="badge rounded-pill bg-body-secondary text-body">3</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Personal care">Personal care <span class="badge rounded-pill bg-body-secondary text-body">1</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Stationery">Stationery <span class="badge rounded-pill bg-body-secondary text-body">2</span></button>
+              <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-category="Drinks">Drinks <span class="badge rounded-pill bg-body-secondary text-body">2</span></button>
+            </div>
+
+            <h2 class="mg-eyebrow mb-3">Price</h2>
+            <label for="priceRange" class="form-label small">Highest price: <strong>$10.00</strong></label>
+            <input type="range" class="form-range mb-1" id="priceRange" min="0" max="10" step="0.5" value="10">
+            <div class="d-flex justify-content-between small text-body-secondary mb-4"><span>$0</span><span>$10</span></div>
+
+            <div class="form-check form-switch mb-4">
+              <input class="form-check-input" type="checkbox" role="switch" id="inStockOnly" checked>
+              <label class="form-check-label" for="inStockOnly">In stock only</label>
+            </div>
+
+            <button type="button" class="btn btn-primary w-100 d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#filters">Show 16 products</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="col-lg-9">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <button class="btn btn-outline-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters" aria-controls="filters">
+            <i class="bi bi-sliders me-1" aria-hidden="true"></i>Filters
+          </button>
+          <p class="small text-body-secondary mb-0 d-none d-sm-block">Showing 16 of 16 products</p>
+
+          <div class="dropdown ms-auto" id="sortSelect">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sort by: Popular
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item active" type="button" data-sort="popular" aria-current="true">Popular</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="price-asc">Price, low to high</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="price-desc">Price, high to low</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="name">Name, A to Z</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3" id="productGrid">
+          <div class="col">
+            <article class="card h-100 product-card" data-id="rice-5kg" data-category="Groceries" data-price="7.90">
+              <div class="position-relative">
+                <img src="images/products/rice-5kg.webp" class="card-img-top" width="800" height="800" alt="A 5 kg bag of white rice" loading="lazy">
+                  <span class="badge text-bg-dark position-absolute top-0 start-0 m-2">Best seller</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Rice</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">5 kg</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$7.90</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Rice"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="rice-5kg">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="sugar-2kg" data-category="Groceries" data-price="3.40">
+              <div class="position-relative">
+                <img src="images/products/sugar-2kg.webp" class="card-img-top" width="800" height="800" alt="A 2 kg bag of sugar" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Sugar</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">2 kg</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$3.40</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Sugar"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="sugar-2kg">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="cooking-oil-3l" data-category="Groceries" data-price="8.25">
+              <div class="position-relative">
+                <img src="images/products/cooking-oil-3l.webp" class="card-img-top" width="800" height="800" alt="A 3 litre bottle of yellow cooking oil" loading="lazy">
+                  <span class="badge text-bg-warning position-absolute top-0 start-0 m-2">Save $0.50</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Cooking oil</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">3 litres</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$8.25</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Cooking oil"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="cooking-oil-3l">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="maize-flour-2kg" data-category="Groceries" data-price="2.60">
+              <div class="position-relative">
+                <img src="images/products/maize-flour-2kg.webp" class="card-img-top" width="800" height="800" alt="A 2 kg bag of maize flour" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Maize flour</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">2 kg</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$2.60</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Maize flour"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="maize-flour-2kg">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="tea-leaves-500g" data-category="Groceries" data-price="2.95">
+              <div class="position-relative">
+                <img src="images/products/tea-leaves-500g.webp" class="card-img-top" width="800" height="800" alt="A green 500 g box of tea leaves" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Tea leaves</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">500 g</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$2.95</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Tea leaves"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="tea-leaves-500g">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="milk-1l" data-category="Dairy" data-price="1.15">
+              <div class="position-relative">
+                <img src="images/products/milk-1l.webp" class="card-img-top" width="800" height="800" alt="A 1 litre carton of milk" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Milk</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">1 litre</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$1.15</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Milk"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="milk-1l">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="yoghurt-500ml" data-category="Dairy" data-price="1.80">
+              <div class="position-relative">
+                <img src="images/products/yoghurt-500ml.webp" class="card-img-top" width="800" height="800" alt="A 500 ml cup of yoghurt" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Yoghurt</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">500 ml</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$1.80</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Yoghurt"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="yoghurt-500ml">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="bread-800g" data-category="Bakery" data-price="1.35">
+              <div class="position-relative">
+                <img src="images/products/bread-800g.webp" class="card-img-top" width="800" height="800" alt="A loaf of white bread" loading="lazy">
+                  <span class="badge bg-success-subtle text-success-emphasis position-absolute top-0 start-0 m-2">Fresh today</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Bread</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">800 g</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$1.35</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Bread"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="bread-800g">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="bar-soap-800g" data-category="Household" data-price="2.20">
+              <div class="position-relative">
+                <img src="images/products/bar-soap-800g.webp" class="card-img-top" width="800" height="800" alt="A green bar of washing soap" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Bar soap</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">800 g</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$2.20</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Bar soap"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="bar-soap-800g">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="detergent-1kg" data-category="Household" data-price="3.75">
+              <div class="position-relative">
+                <img src="images/products/detergent-1kg.webp" class="card-img-top" width="800" height="800" alt="A blue 1 kg box of washing powder" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Detergent</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">1 kg</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$3.75</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Detergent"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="detergent-1kg">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="toothpaste-150ml" data-category="Personal care" data-price="1.95">
+              <div class="position-relative">
+                <img src="images/products/toothpaste-150ml.webp" class="card-img-top" width="800" height="800" alt="A tube of toothpaste and its box" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Toothpaste</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">150 ml</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$1.95</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Toothpaste"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="toothpaste-150ml">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="exercise-books-10" data-category="Stationery" data-price="4.50">
+              <div class="position-relative">
+                <img src="images/products/exercise-books-10.webp" class="card-img-top" width="800" height="800" alt="A pile of ten exercise books" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Exercise books, 96 pages, ruled</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">10 pack</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$4.50</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Exercise books, 96 pages, ruled"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="exercise-books-10">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="pens-12" data-category="Stationery" data-price="2.40">
+              <div class="position-relative">
+                <img src="images/products/pens-12.webp" class="card-img-top" width="800" height="800" alt="A pack of twelve ballpoint pens" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Pens</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">12 pack</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$2.40</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Pens"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="pens-12">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="batteries-aa-4" data-category="Household" data-price="3.10">
+              <div class="position-relative">
+                <img src="images/products/batteries-aa-4.webp" class="card-img-top" width="800" height="800" alt="A card of four AA batteries" loading="lazy">
+                  <span class="badge bg-danger-subtle text-danger-emphasis position-absolute top-0 start-0 m-2">Low stock</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Batteries</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">AA, 4 pack</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$3.10</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Batteries"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="batteries-aa-4">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="bottled-water-1-5l" data-category="Drinks" data-price="0.85">
+              <div class="position-relative">
+                <img src="images/products/bottled-water-1-5l.webp" class="card-img-top" width="800" height="800" alt="A 1.5 litre bottle of water" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Bottled water</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">1.5 litres</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$0.85</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Bottled water"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="bottled-water-1-5l">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100 product-card" data-id="soda-500ml" data-category="Drinks" data-price="0.70">
+              <div class="position-relative">
+                <img src="images/products/soda-500ml.webp" class="card-img-top" width="800" height="800" alt="A red 500 ml bottle of soda" loading="lazy">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h6 card-title mb-1">
+                  <a href="product.html" class="stretched-link text-reset text-decoration-none">Soda</a>
+                </h3>
+                <p class="small text-body-secondary mb-3">500 ml</p>
+                <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                  <span class="mg-tag">$0.70</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="Quick view: Soda"><i class="bi bi-eye" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-primary w-100 js-add-to-cart position-relative z-2" data-id="soda-500ml">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <nav class="mt-5" aria-label="Product pages">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+            <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <!-- Quick view. One modal, opened by the eye button on every card. -->
+  <div class="modal fade" id="quickView" tabindex="-1" aria-labelledby="quickViewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img src="images/products/rice-5kg.webp" class="img-fluid" width="800" height="800" alt="A 5 kg bag of white rice" loading="lazy">
+          </div>
+          <div class="col-md-6 d-flex flex-column p-4">
+            <div class="d-flex justify-content-between align-items-start">
+              <p class="mg-eyebrow mb-1">Groceries</p>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <h2 class="modal-title mb-1" id="quickViewLabel">Rice</h2>
+            <p class="text-body-secondary">5 kg bag</p>
+            <p><span class="mg-tag fs-4">$7.90</span></p>
+            <p>Long grain white rice. Cooks soft and does not stick. Enough for a family of five for about a week.</p>
+            <p class="small text-success-emphasis"><i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i>In stock at all three branches</p>
+            <div class="mt-auto d-grid gap-2">
+              <button type="button" class="btn btn-primary js-add-to-cart" data-id="rice-5kg"><i class="bi bi-bag-plus me-1" aria-hidden="true"></i>Add to cart</button>
+              <a href="product.html" class="btn btn-link">See full details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mg-footer pt-5 pb-4 d-print-none">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-3">
+            <img src="images/logo.svg" width="34" height="34" alt="">
+            <span class="mg-brand text-white">Marigold<small>shop</small></span>
+          </a>
+          <p class="text-body-secondary">Your neighbourhood shop since 2009. Three branches, one friendly team.</p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" aria-label="Marigold on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Marigold on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Chat with Marigold on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-3">Shop</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="products.html">All products</a></li>
+                <li><a href="products.html">Groceries</a></li>
+                <li><a href="products.html">Household</a></li>
+                <li><a href="products.html">Stationery</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-3">Help</h2>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="contact.html#faq">Delivery</a></li>
+                <li><a href="contact.html#faq">Click and collect</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="mb-3">Friday deals</h2>
+          <p class="text-body-secondary">One short email every Friday with the best prices of the week.</p>
+          <form class="d-flex gap-2" action="#">
+            <label for="newsletterEmail" class="visually-hidden">Your email address</label>
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span id="year">2026</span> Marigold Stores. Central, Northgate and Lakeside.</p>
+        <p class="mb-0 text-body-secondary">Marigold is a made-up shop. This site is the project for the AI Powered Bootstrap course.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- The toast that says "Added to your cart" -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="cartToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <img src="images/logo.svg" width="20" height="20" class="me-2" alt="">
+        <strong class="me-auto">Marigold Shop</strong>
+        <small>Just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <i class="bi bi-check-circle-fill text-success me-1" aria-hidden="true"></i>
+        Added to your cart. <a href="cart.html">See your cart</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/marigold.js"></script>
+</body>
+</html>

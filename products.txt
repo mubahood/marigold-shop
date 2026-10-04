@@ -1,0 +1,19 @@
+Marigold Shop products. One product per line.
+id | name | size | category | price | description
+
+rice-5kg | Rice | 5 kg | Groceries | $7.90 | Long grain white rice. Cooks soft and does not stick.
+sugar-2kg | Sugar | 2 kg | Groceries | $3.40 | Fine white sugar for tea, baking and cooking.
+cooking-oil-3l | Cooking oil | 3 litres | Groceries | $8.25 | Light vegetable oil for frying and cooking.
+maize-flour-2kg | Maize flour | 2 kg | Groceries | $2.60 | Finely milled maize flour. Smooth and easy to cook.
+tea-leaves-500g | Tea leaves | 500 g | Groceries | $2.95 | Strong black tea. One spoon makes a full pot.
+milk-1l | Milk | 1 litre | Dairy | $1.15 | Fresh whole milk, in our branches every morning.
+yoghurt-500ml | Yoghurt | 500 ml | Dairy | $1.80 | Thick plain yoghurt. Keep it cold.
+bread-800g | Bread | 800 g | Bakery | $1.35 | Soft white bread, baked at 6am at our Central branch.
+bar-soap-800g | Bar soap | 800 g | Household | $2.20 | Long lasting soap for clothes and hands.
+detergent-1kg | Detergent | 1 kg | Household | $3.75 | Washing powder for hand wash and machines.
+toothpaste-150ml | Toothpaste | 150 ml | Personal care | $1.95 | Mint toothpaste for the whole family.
+exercise-books-10 | Exercise books, 96 pages, ruled | 10 pack | Stationery | $4.50 | Strong covers, clean white pages. Ready for school.
+pens-12 | Pens | 12 pack | Stationery | $2.40 | Blue, black and red pens that write smoothly.
+batteries-aa-4 | Batteries | AA, 4 pack | Household | $3.10 | Long life AA batteries for remotes, torches and toys.
+bottled-water-1-5l | Bottled water | 1.5 litres | Drinks | $0.85 | Clean drinking water in a bottle you can reuse.
+soda-500ml | Soda | 500 ml | Drinks | $0.70 | A cold fizzy drink. Best from the fridge.

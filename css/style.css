@@ -1,0 +1,473 @@
+/* =========================================================
+   Marigold Shop, style.css
+   Bootstrap does most of the work. This file only does two jobs:
+   1. The Marigold theme: our colours, fonts and corners (lesson 44).
+   2. A few small Marigold touches Bootstrap does not have.
+   ========================================================= */
+
+
+/* ---------- 1. The Marigold theme, light mode ---------- */
+:root,
+[data-bs-theme="light"] {
+  /* Our colours */
+  --mg-rust: #B5541C;
+  --mg-rust-dark: #8F4013;
+  --mg-gold: #E8962F;
+  --mg-tag: #FFE28A;
+  --mg-ink: #1B1E2B;
+  --mg-leaf: #2F6B4F;
+  --mg-paper: #FBF6EE;
+
+  /* Fonts */
+  --bs-body-font-family: "Figtree", system-ui, sans-serif;
+  --mg-display: "Fraunces", Georgia, serif;
+  --mg-hand: "Caveat", "Comic Sans MS", cursive;
+
+  /* Page colours */
+  --bs-body-bg: #FBF6EE;
+  --bs-body-bg-rgb: 251, 246, 238;
+  --bs-body-color: #1B1E2B;
+  --bs-body-color-rgb: 27, 30, 43;
+  --bs-secondary-color: rgba(27, 30, 43, .68);
+  --bs-tertiary-bg: #F4EBDD;
+  --bs-tertiary-bg-rgb: 244, 235, 221;
+  --bs-secondary-bg: #EDE1CF;
+  --bs-border-color: #E3D5C0;
+  --bs-heading-color: #1B1E2B;
+
+  /* Rust instead of Bootstrap blue */
+  --bs-primary: #B5541C;
+  --bs-primary-rgb: 181, 84, 28;
+  --bs-primary-bg-subtle: #F6E3D8;
+  --bs-primary-border-subtle: #EBC2A8;
+  --bs-primary-text-emphasis: #7A3712;
+  --bs-link-color: #A34A17;
+  --bs-link-color-rgb: 163, 74, 23;
+  --bs-link-hover-color: #7A3712;
+  --bs-link-hover-color-rgb: 122, 55, 18;
+  --bs-focus-ring-color: rgba(181, 84, 28, .3);
+
+  /* Softer corners */
+  --bs-border-radius: .6rem;
+  --bs-border-radius-sm: .4rem;
+  --bs-border-radius-lg: 1rem;
+}
+
+
+/* ---------- 1b. Dark mode ---------- */
+[data-bs-theme="dark"] {
+  --mg-paper: #17140F;
+  --mg-tag: #F6D46B;
+
+  --bs-body-bg: #17140F;
+  --bs-body-bg-rgb: 23, 20, 15;
+  --bs-body-color: #EFE6D8;
+  --bs-body-color-rgb: 239, 230, 216;
+  --bs-secondary-color: rgba(239, 230, 216, .7);
+  --bs-tertiary-bg: #211C16;
+  --bs-tertiary-bg-rgb: 33, 28, 22;
+  --bs-secondary-bg: #2B241C;
+  --bs-border-color: #3A3128;
+  --bs-heading-color: #F6EEE2;
+
+  --bs-primary: #EE8A4C;
+  --bs-primary-rgb: 238, 138, 76;
+  --bs-primary-bg-subtle: #3A2416;
+  --bs-primary-border-subtle: #6B3A1D;
+  --bs-primary-text-emphasis: #F4B48A;
+  --bs-link-color: #F29A62;
+  --bs-link-color-rgb: 242, 154, 98;
+  --bs-link-hover-color: #F7BC93;
+  --bs-link-hover-color-rgb: 247, 188, 147;
+  --bs-focus-ring-color: rgba(238, 138, 76, .35);
+}
+
+
+/* ---------- 1c. Bootstrap parts that still use blue ---------- */
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #B5541C;
+  --bs-btn-border-color: #B5541C;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #9A4616;
+  --bs-btn-hover-border-color: #9A4616;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #7F3A12;
+  --bs-btn-active-border-color: #7F3A12;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #B5541C;
+  --bs-btn-disabled-border-color: #B5541C;
+  --bs-btn-focus-shadow-rgb: 181, 84, 28;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #A34A17;
+  --bs-btn-border-color: #B5541C;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #B5541C;
+  --bs-btn-hover-border-color: #B5541C;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #9A4616;
+  --bs-btn-active-border-color: #9A4616;
+  --bs-btn-focus-shadow-rgb: 181, 84, 28;
+}
+
+/* In dark mode a bright orange button needs dark text to be readable */
+[data-bs-theme="dark"] .btn-primary {
+  --bs-btn-color: #17140F;
+  --bs-btn-bg: #EE8A4C;
+  --bs-btn-border-color: #EE8A4C;
+  --bs-btn-hover-color: #17140F;
+  --bs-btn-hover-bg: #F4A271;
+  --bs-btn-hover-border-color: #F4A271;
+  --bs-btn-active-color: #17140F;
+  --bs-btn-active-bg: #F7B994;
+  --bs-btn-active-border-color: #F7B994;
+  --bs-btn-disabled-color: #17140F;
+  --bs-btn-disabled-bg: #EE8A4C;
+  --bs-btn-disabled-border-color: #EE8A4C;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary {
+  --bs-btn-color: #F29A62;
+  --bs-btn-border-color: #EE8A4C;
+  --bs-btn-hover-color: #17140F;
+  --bs-btn-hover-bg: #EE8A4C;
+  --bs-btn-hover-border-color: #EE8A4C;
+  --bs-btn-active-color: #17140F;
+  --bs-btn-active-bg: #F4A271;
+  --bs-btn-active-border-color: #F4A271;
+}
+
+.pagination {
+  --bs-pagination-color: var(--bs-link-color);
+  --bs-pagination-hover-color: var(--bs-link-hover-color);
+  --bs-pagination-focus-color: var(--bs-link-hover-color);
+  --bs-pagination-focus-box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color);
+  --bs-pagination-active-bg: var(--bs-primary);
+  --bs-pagination-active-border-color: var(--bs-primary);
+  --bs-pagination-active-color: #fff;
+}
+[data-bs-theme="dark"] .pagination { --bs-pagination-active-color: #17140F; }
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--bs-primary);
+  --bs-nav-pills-link-active-color: #fff;
+}
+[data-bs-theme="dark"] .nav-pills { --bs-nav-pills-link-active-color: #17140F; }
+
+.nav-link { --bs-nav-link-color: var(--bs-link-color); --bs-nav-link-hover-color: var(--bs-link-hover-color); }
+.navbar-nav .nav-link { --bs-nav-link-color: var(--bs-body-color); }
+
+.progress { --bs-progress-bar-bg: var(--bs-primary); }
+
+.list-group {
+  --bs-list-group-active-bg: var(--bs-primary);
+  --bs-list-group-active-border-color: var(--bs-primary);
+  --bs-list-group-active-color: #fff;
+}
+[data-bs-theme="dark"] .list-group { --bs-list-group-active-color: #17140F; }
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--bs-primary);
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--bs-primary-border-subtle);
+  box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color);
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.form-range::-webkit-slider-thumb { background-color: var(--bs-primary); }
+.form-range::-moz-range-thumb { background-color: var(--bs-primary); }
+
+.text-bg-primary { background-color: var(--bs-primary) !important; }
+
+.accordion {
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color);
+}
+
+
+/* Form boxes a little lighter than the page, so they are easy to see */
+[data-bs-theme="light"] .form-control,
+[data-bs-theme="light"] .form-select { background-color: #FFFDF9; }
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select { background-color: #1F1A14; }
+
+
+/* ---------- 1d. Images ---------- */
+/* Our img tags carry width and height so the page does not jump while
+   pictures load (lesson 46). This line keeps them in shape when they shrink. */
+:where(img[width][height]) { height: auto; }
+
+
+/* ---------- 2. Type ---------- */
+h1, h2, h3, .display-4, .display-5, .mg-display {
+  font-family: var(--mg-display);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.mg-eyebrow {
+  font-family: var(--bs-body-font-family);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bs-primary);
+}
+
+/* A handwritten note, like a sticky note in the shop */
+.mg-hand {
+  font-family: var(--mg-hand);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--bs-primary);
+}
+
+/* A wavy line under one important word */
+.mg-wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M2 8 Q 17 2 32 7 T 62 7 T 92 7 T 118 6' fill='none' stroke='%23E8962F' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") bottom left / 100% .35em no-repeat;
+  padding-bottom: .12em;
+}
+
+
+/* ---------- 3. Navbar ---------- */
+.mg-brand {
+  font-family: var(--mg-display);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -.02em;
+  color: var(--bs-body-color);
+}
+.mg-brand small {
+  font-family: var(--bs-body-font-family);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bs-primary);
+  vertical-align: middle;
+  margin-left: .15rem;
+}
+
+.navbar .nav-link.active { color: var(--bs-primary); font-weight: 600; }
+
+.mg-ribbon {
+  background: var(--mg-ink);
+  color: #F6EEE2;
+  border: 0;
+  border-radius: 0;
+  font-size: .92rem;
+}
+.mg-ribbon strong { color: var(--mg-tag); }
+.mg-ribbon .btn-close { filter: invert(1); }
+
+
+/* ---------- 4. Home page ---------- */
+.mg-hero-shelf { border-radius: var(--bs-border-radius-lg); }
+
+.mg-note {
+  position: absolute;
+  left: -1rem;
+  bottom: 1.5rem;
+  max-width: 13rem;
+  background: var(--mg-tag);
+  color: var(--mg-ink);
+  padding: .75rem 1rem;
+  transform: rotate(-4deg);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, .08);
+}
+.mg-note .mg-hand { color: var(--mg-ink); font-size: 1.45rem; }
+
+.carousel-caption.mg-caption {
+  left: 10%;
+  right: auto;
+  bottom: 18%;
+  max-width: 34%;
+  text-align: start;
+  color: var(--mg-ink);
+}
+.carousel-caption.mg-caption h2 { font-size: clamp(1.4rem, 2.6vw, 2.4rem); }
+.carousel-indicators [data-bs-target] { background-color: var(--mg-ink); }
+.carousel-control-prev-icon,
+.carousel-control-next-icon { filter: invert(1) grayscale(1); }
+
+.mg-number {
+  font-family: var(--mg-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--mg-gold);
+}
+
+/* The branches band: three stops on one road */
+.mg-road { position: relative; }
+.mg-road::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--bs-gutter-y) + 1.125rem - 1.5px);
+  left: 8%;
+  right: 8%;
+  border-top: 3px dashed rgba(246, 238, 226, .35);
+}
+.mg-stop {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--mg-gold);
+  color: var(--mg-ink);
+  display: inline-grid;
+  place-items: center;
+  font-weight: 800;
+  box-shadow: 0 0 0 6px var(--mg-ink);
+}
+.text-bg-dark.mg-band { background-color: var(--mg-ink) !important; --bs-heading-color: #F6EEE2; }
+@media (max-width: 767.98px) {
+  .mg-road::before { display: none; }
+}
+
+
+/* ---------- 5. Product cards and the price tag ---------- */
+.product-card {
+  border-color: var(--bs-border-color);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--bs-primary-border-subtle);
+}
+.product-card .card-img-top { aspect-ratio: 1 / 1; object-fit: cover; }
+
+/* Like the yellow price label on a shop shelf */
+.mg-tag {
+  display: inline-block;
+  position: relative;
+  background: var(--mg-tag);
+  color: var(--mg-ink);
+  font-family: var(--mg-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  padding: .1rem .7rem .1rem 1.15rem;
+  clip-path: polygon(.6rem 0, 100% 0, 100% 100%, .6rem 100%, 0 50%);
+}
+.mg-tag::before {
+  content: "";
+  position: absolute;
+  left: .55rem;
+  top: 50%;
+  width: .32rem;
+  height: .32rem;
+  margin-top: -.16rem;
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+}
+.mg-tag-lg { font-size: 2rem; padding: .2rem 1.1rem .2rem 1.8rem; clip-path: polygon(1rem 0, 100% 0, 100% 100%, 1rem 100%, 0 50%); }
+.mg-tag-lg::before { left: .85rem; width: .5rem; height: .5rem; margin-top: -.25rem; }
+
+.mg-was { text-decoration: line-through; color: var(--bs-secondary-color); font-size: .85rem; }
+
+
+/* ---------- 6. Cart: the order summary looks like a till receipt ---------- */
+.mg-receipt {
+  position: relative;
+  background: #FFFDF8;
+  color: var(--mg-ink);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .92rem;
+  padding: 1.5rem 1.5rem 2.25rem;
+  border: 1px solid #E8DCCB;
+  border-bottom: 0;
+}
+.mg-receipt::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -12px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 0 L12 12 L24 0Z' fill='%23FFFDF8'/%3E%3C/svg%3E") 0 0 / 24px 12px repeat-x;
+}
+.mg-receipt .list-group-item { background: transparent; color: inherit; border-color: #D9CCB8; border-style: dashed; }
+.mg-receipt .btn, .mg-receipt .form-check-label { font-family: var(--bs-body-font-family); }
+.mg-receipt .mg-total { font-size: 1.15rem; font-weight: 700; }
+[data-bs-theme="dark"] .mg-receipt { border-color: #FFFDF8; }
+
+
+/* ---------- 7. Footer with a petal edge ---------- */
+.mg-footer {
+  position: relative;
+  background: var(--mg-ink);
+  color: #E9DFD0;
+  margin-top: 6rem;
+}
+.mg-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 18'%3E%3Cpath d='M0 18 A18 18 0 0 1 36 18Z' fill='%231B1E2B'/%3E%3C/svg%3E") 0 0 / 36px 18px repeat-x;
+}
+.mg-footer a { color: #F6EEE2; text-decoration: none; }
+.mg-footer a:hover { color: var(--mg-tag); text-decoration: underline; }
+.mg-footer .text-body-secondary { color: rgba(233, 223, 208, .7) !important; }
+.mg-footer h2 { font-size: .8rem; font-family: var(--bs-body-font-family); letter-spacing: .12em; text-transform: uppercase; color: var(--mg-gold); }
+.mg-footer .form-control { background: #262A3A; border-color: #3A3F52; color: #fff; }
+.mg-footer .form-control::placeholder { color: rgba(255, 255, 255, .55); }
+
+
+/* ---------- 8. About page ---------- */
+.mg-side-nav { top: 6rem; }
+.mg-signature { font-family: var(--mg-hand); font-size: 2.2rem; color: var(--bs-primary); }
+.mg-quote { font-family: var(--mg-display); font-size: 1.35rem; line-height: 1.45; }
+
+
+/* ---------- 9. Login and register ---------- */
+.mg-auth-art {
+  background: #F1E2CC url("../images/hero-shelf.webp") center / cover no-repeat;
+  min-height: 100%;
+}
+
+
+/* ---------- 10. Admin ---------- */
+.mg-admin-top { background: var(--mg-ink); }
+.mg-admin-side .nav-link { color: var(--bs-body-color); border-radius: var(--bs-border-radius); }
+.mg-admin-side .nav-link:hover { background: var(--bs-tertiary-bg); }
+.mg-admin-side .nav-link.active { background: var(--bs-primary-bg-subtle); color: var(--bs-primary-text-emphasis); font-weight: 600; }
+@media (min-width: 992px) {
+  .mg-admin-side { width: 250px; min-height: calc(100vh - 56px); }
+}
+.mg-stat { font-family: var(--mg-display); font-size: 2rem; font-weight: 700; line-height: 1.1; }
+
+
+/* ---------- 11. Small helpers ---------- */
+.mg-thumb { width: 56px; height: 56px; object-fit: cover; }
+.mg-icon-btn { width: 2.5rem; height: 2.5rem; display: inline-grid; place-items: center; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card, .product-card:hover { transition: none; transform: none; }
+}
+
+/* ---------- 12. Small phones ---------- */
+@media (max-width: 575.98px) {
+  .mg-brand { font-size: 1.2rem; }
+  .navbar-brand img { width: 32px; height: 32px; }
+  .navbar-toggler { padding: .25rem .5rem; }
+  .mg-note { left: .5rem; bottom: .75rem; max-width: 10.5rem; padding: .5rem .75rem; }
+  .mg-note .mg-hand { font-size: 1.15rem; }
+}
+
+/* The quantity box has its own minus and plus buttons, so hide the browser arrows */
+.mg-qty::-webkit-inner-spin-button,
+.mg-qty::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.mg-qty { -moz-appearance: textfield; appearance: textfield; }
